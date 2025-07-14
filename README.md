@@ -10,7 +10,7 @@ This setup has been created as a means to conduct limited testing and learning w
 
 | Component    | Description                                             |
 |--------------|---------------------------------------------------------|
-| OS           | AlmaLinux 8 or 9 (`ALMA_VERSION`).                      |
+| OS           | Defaults to AlmaLinux 9, 8 or 9 supported (`ALMA_VERSION`).                      |
 | SLURM        | Defaults to version `24.05.8` (configurable to 22.05 and above). |
 | CGroup       | CGroup v2 enabled by default.                           |
 | VMs          | 1 Login, 2 SLURM Controllers, 1 SLURM DBD, 1 Storage, N Compute nodes. |
