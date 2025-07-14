@@ -11,16 +11,30 @@ This setup has been created as a means to conduct limited testing and learning w
 
 ---
 
+## Features
+
+* Defaults to **SLURM 24.05.8** compiled from source.
+* **High-availability SLURM controllers**.
+* **SLURM DBD** with MariaDB backend.
+* **MUNGE** authentication across nodes.
+* **NFS-shared areas from the storage node under the `/export` directory** mounting at `/home`, `/opt/software`, `/etc/slurm` and `/opt/site`.
+* **CGroupV2 support** (Note: AlmaLinux 8 compute nodes will trigger a reboot to enable this).
+* **Firewalls configured** per-role.
+* **pdsh** environment set up for parallel node commands.
+* **Open OnDemand** installed optionally on login node.
+
+---
+
 ## Configuration Overview
 
 | Component          | Description                                                                                  |
 |--------------------|----------------------------------------------------------------------------------------------|
-| OS                 | Defaults to AlmaLinux 9; both AlmaLinux 8 and 9 are supported, see: `ALMA_VERSION`.        |
-| SLURM              | Defaults to version `24.05.8`; configurable to 22.05 and above, see:  `SLURM_VERSION`.     |
+| OS                 | Defaults to AlmaLinux 9; both AlmaLinux 8 and 9 are supported, see: `ALMA_VERSION`.          |
+| SLURM              | Defaults to version `24.05.8`; configurable to 22.05 and above, see:  `SLURM_VERSION`.       |
 | VMs                | 1 Login, 2 SLURM Controllers, 1 SLURM DBD, 1 Storage, N Compute nodes (defaults to 2).       |
-| VM Memory per Node | Defaults to `2048` MB, see:  `VM_MEMORY`.                                                  |
-| CPU Cores per Node | Defaults to `16` cores, see:  `VM_CPUS`.                                                   |
-| Open OnDemand      | Optional installation enabled by default, see: `OOD_INSTALL`.                              |
+| VM Memory per Node | Defaults to `2048` MB, see:  `VM_MEMORY`.                                                    |
+| CPU Cores per Node | Defaults to `16` cores, see:  `VM_CPUS`.                                                     |
+| Open OnDemand      | Optional installation enabled by default, see: `OOD_INSTALL`.                                |
 | CGroups            | CGroup v2 enabled by default.                                                                |
 
 ---
@@ -74,20 +88,6 @@ vagrant up
 ```
 
 Note: Provisioning will take some time as it installs and configures all components.
-
----
-
-## Features
-
-* Defaults to **SLURM 24.05.8** compiled from source.
-* **High-availability SLURM controllers**.
-* **SLURM DBD** with MariaDB backend.
-* **MUNGE** authentication across nodes.
-* **NFS-shared areas from the storage node under the `/export` directory** mounting at `/home`, `/opt/software`, `/etc/slurm` and `/opt/site`.
-* **CGroupV2 support** (Note: AlmaLinux 8 compute nodes will trigger a reboot to enable this).
-* **Firewalls configured** per-role.
-* **pdsh** environment set up for parallel node commands.
-* **Open OnDemand** installed optionally on login node.
 
 ---
 
