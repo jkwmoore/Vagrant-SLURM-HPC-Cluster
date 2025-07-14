@@ -24,7 +24,7 @@ This setup has been created as a means to conduct limited testing and learning w
 
 - [Vagrant](https://www.vagrantup.com/) (>= 2.2.x)
 - [VirtualBox](https://www.virtualbox.org/) (latest recommended)
-- Vagrant plugin: `vagrant-reload` (used to enable CGroupV2 on Alma 8 compute nodes).
+- Vagrant plugin: [`vagrant-reload`](https://github.com/aidanns/vagrant-reload) (used to enable CGroupV2 on Alma 8 compute nodes).
 
 Install required plugin (if missing):
 
