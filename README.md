@@ -4,6 +4,11 @@ This Vagrant configuration sets up a full-featured SLURM-based facsimile HPC clu
 
 This setup has been created as a means to conduct limited testing and learning with SLURM and Open OnDemand.
 
+> [!WARNING]  
+> This Vagrant setup by nature is intended to be ephemeral and is not particularly secure (default passwords etc...) so:
+> * Do not use this as an example of a production setup!
+> * Do not run this on an untrusted network (we are using the default vagrant password!)
+
 ---
 
 ## Configuration Overview
@@ -44,6 +49,10 @@ cd Vagrant-SLURM-HPC-Cluster
 ```
 
 2. **Customize Configuration in the `Vagrantfile` (Optional)**
+
+> [!IMPORTANT]  
+> If you want to use a SLURM version lower than 22.05 you will need to amend the scripting to use version 1 CGroups!
+
    You can change:
 
 * `ALMA_VERSION` — AlmaLinux 8 or 9.
@@ -52,6 +61,9 @@ cd Vagrant-SLURM-HPC-Cluster
 * `VM_MEMORY` — set to no less than 2048 MB but increase as your machine supports.
 * `VM_CPUS` — set as your machine supports.
 * `OOD_INSTALL` — toggle to `true` to enable Open OnDemand support, anything else will disable it.
+
+
+
 
 3. **Start the cluster**:
 
@@ -152,11 +164,11 @@ sbatch --wrap 'sleep 10 ; echo Hello world'
 
 ## Using / testing Open OnDemand
 
-If Open OnDemand is installed, access via your browser at:
+If Open OnDemand is installed, access via your browser at: https://192.168.56.10/
 
-```
-https://192.168.56.10/
-```
+
+> [!IMPORTANT]  
+> You will get an SSL certificate warning, which is expected as we have generated and used a self signed certificate.
 
 The basic shell and interactive desktop app (with XFCE) will be setup by default and functional.
 
