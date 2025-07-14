@@ -97,8 +97,8 @@ Note: Provisioning will take some time as it installs and configures all compone
 | -------------- | ------------- | ----------------------------------------- |
 | login1         | 192.168.56.10 | Login node + OOD (if enabled)             |
 | storage1       | 192.168.56.11 | NFS server providing cluster wide storage |
-| slurmctld1     | 192.168.56.12 | Primary controller                        |
-| slurmctld2     | 192.168.56.13 | Secondary controller                      |
+| slurmctld1     | 192.168.56.12 | Primary Slurm controller                  |
+| slurmctld2     | 192.168.56.13 | Secondary Slurm controller                |
 | slurmdbd1      | 192.168.56.14 | Slurm database daemon                     |
 | compute\[1..N] | 192.168.56.2X | Compute nodes                             |
 
