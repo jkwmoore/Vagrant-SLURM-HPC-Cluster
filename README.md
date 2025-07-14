@@ -8,13 +8,15 @@ This setup has been created as a means to conduct limited testing and learning w
 
 ## Configuration Overview
 
-| Component    | Description                                             |
-|--------------|---------------------------------------------------------|
-| OS           | Defaults to AlmaLinux 9, 8 or 9 supported (`ALMA_VERSION`).                      |
-| SLURM        | Defaults to version `24.05.8` (configurable to 22.05 and above). |
-| CGroup       | CGroup v2 enabled by default.                           |
-| VMs          | 1 Login, 2 SLURM Controllers, 1 SLURM DBD, 1 Storage, N Compute nodes. |
-| Open OnDemand| Optional installation enabled by default (See: `OOD_INSTALL` variable). |
+| Component          | Description                                                                                  |
+|--------------------|----------------------------------------------------------------------------------------------|
+| OS                 | Defaults to AlmaLinux 9; both AlmaLinux 8 and 9 are supported, see: `ALMA_VERSION`.        |
+| SLURM              | Defaults to version `24.05.8`; configurable to 22.05 and above, see:  `SLURM_VERSION`.     |
+| VMs                | 1 Login, 2 SLURM Controllers, 1 SLURM DBD, 1 Storage, N Compute nodes (defaults to 2).       |
+| VM Memory per Node | Defaults to `2048` MB, see:  `VM_MEMORY`.                                                  |
+| CPU Cores per Node | Defaults to `16` cores, see:  `VM_CPUS`.                                                   |
+| Open OnDemand      | Optional installation enabled by default, see: `OOD_INSTALL`.                              |
+| CGroups            | CGroup v2 enabled by default.                                                                |
 
 ---
 
@@ -44,9 +46,11 @@ cd Vagrant-SLURM-HPC-Cluster
 2. **Customize Configuration in the `Vagrantfile` (Optional)**
    You can change:
 
-* `ALMA_VERSION` — AlmaLinux 8 or 9
-* `SLURM_VERSION` — version to build from source
-* `NUM_COMPUTE_NODES` — number of compute nodes
+* `ALMA_VERSION` — AlmaLinux 8 or 9.
+* `SLURM_VERSION` — version to build from source.
+* `NUM_COMPUTE_NODES` — number of compute nodes.
+* `VM_MEMORY` — set to no less than 2048 MB but increase as your machine supports.
+* `VM_CPUS` — set as your machine supports.
 * `OOD_INSTALL` — toggle to `true` to enable Open OnDemand support, anything else will disable it.
 
 3. **Start the cluster**:
