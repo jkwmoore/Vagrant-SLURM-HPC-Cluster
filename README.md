@@ -167,6 +167,8 @@ The basic shell and interactive desktop app (with XFCE) will be setup by default
 * This Vagrant setup by nature is intended to be ephemeral and is not particularly secure (default passwords etc...) so:
   * Do not use this as an example of a production setup!
   * Do not run this on an untrusted network (we are using the default vagrant password!)
+
+  
 * The storage node (as the first node) does more than just provision itself, it also:
   * Creates an additional larger storage disk for cluster wide storage.
   * Creates and exports the cluster wide NFS storage areas.
@@ -174,12 +176,20 @@ The basic shell and interactive desktop app (with XFCE) will be setup by default
   * Creates a MUNGE key and makes it available.
   * Creates a cluster wide 'site script' shared area which will automatically load via `profile.d` on each node.
   * Creates the cluster wide home directory for the `vagrant` user.
+
+
 * The SLURM DBD node will setup the SLURM configuration for all SLURM daemons in addition to its own.
+
+
 * The login node (as the last node) does more than just provision itself, it also:
   * Automatically provisions the `known_hosts` file with all cluster nodes for the `vagrant` user.
   * Optionally installs Open OnDemand and allows access to its running webui.
+
+
 * CGroup V2 is enabled by default for compatibility with recent SLURM releases greater than (22.05+).
   * If you want to use a SLURM version lower than 22.05 you will need to amend the scripting to use version 1 CGroups!
+
+  
 * You can modify the bridge interface on the login node’s `public_network` setting to match your environment.
 
 ---
